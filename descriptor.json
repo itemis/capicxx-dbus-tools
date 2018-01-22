@@ -1,0 +1,66 @@
+{
+    /*
+       Bintray descriptor file
+       See https://docs.travis-ci.com/user/deployment/bintray#Descriptor-file-example
+    */
+    /* Bintray package information.
+       In case the package already exists on Bintray, only the name, repo and subject
+       fields are mandatory. */
+
+    "package": {
+        "name": "capicxx-dbus-tools", // Bintray package name
+        "repo": "generic", // Bintray repository name
+        "subject": "itemis", // Bintray subject (user or organization)
+        "desc": "CommonAPI C++ is a standardized C++ API specification for the development of distributed applications which communicate via a middleware for interprocess communication.",
+        "website_url": "https://genivi.github.io/capicxx-core-tools/",
+        "issue_tracker_url": "https://github.com/itemis/capicxx-core-tools/issues",
+        "vcs_url": "https://github.com/itemis/capicxx-core-tools.git",
+        "github_use_tag_release_notes": true,
+        "github_release_notes_file": "CHANGES",
+        "licenses": ["MPL-2.0"],
+        "labels": ["C++", "IPC", "D-Bus", "Franca"],
+        "public_download_numbers": false,
+        "public_stats": false,
+        "attributes": []
+    },
+
+    /* Package version information.
+       In case the version already exists on Bintray, only the name fields is mandatory. */
+
+    "version": {
+        "name": "3.1.13.SNAPSHOT",
+        "desc": "This is a development version",
+        "attributes": [],
+        "gpgSign": false
+    },
+
+    /* Configure the files to upload to Bintray and their upload path. */
+
+    "files":
+        [
+        {
+            "includePattern": "org.genivi.commonapi.dbus.updatesite/target/repository/(.*)",
+            "excludePattern": ".*/features/.*",
+            "uploadPattern": "$1",
+            "matrixParams": {
+                "override": 1
+            }
+        },
+        {
+            "includePattern": "org.genivi.commonapi.dbus.updatesite/target/repository/features/(.*)",
+            "uploadPattern": "capicxx-dbus-tools/3.1.13.SNAPSHOT/features/$1",
+            "matrixParams": {
+                "override": 1
+            }
+        },
+        {
+            "includePattern": "org.genivi.commonapi.dbus.updatesite/target/repository/plugins/(.*)",
+            "uploadPattern": "capicxx-dbus-tools/3.1.13.SNAPSHOT/plugins/$1",
+            "matrixParams": {
+                "override": 1
+            }
+        }
+        ],
+    "publish": true
+}
+

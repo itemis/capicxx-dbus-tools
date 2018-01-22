@@ -1,0 +1,24 @@
+sudo: true
+language: java
+dist: trusty
+group: edge
+jdk:
+- oraclejdk8
+cache:
+  directories:
+  - "$HOME/.m2"
+env:
+  global:
+  - DISPLAY=:99.0
+before_install:
+- sh -e /etc/init.d/xvfb start - sleep 10
+script:
+- mvn -Dtarget.id=org.genivi.commonapi.dbus.target -f org.genivi.commonapi.dbus.releng/pom.xml clean verify
+deploy:
+  on: develop
+  provider: bintray
+  file: "descriptor.json"
+  user: "kthoms"
+  dry-run: false
+  key:
+    secure: vsb5ln3SOwKsXNGP7bH6Cx9uH379v9BXvVQm48n/6uHiSP6rGNDvsjH/1cdSQ+HCyak7X3/ZyooBJ1+SFAQ8uFxyDBHusepXGJwakWcsp55SeueV9ZT3P0gd4Agcw7fH9ZkVkRy5nwgvpLKiG+/gduUbTTsmKh7kB6t82gByyrOA1H99u0EjQJWJ6oIanVtOdfCpvkd2U3q6NabPE25UOaKcH3YuBSYkX5Gm0MoH6WrFjcZt2lYWCBvODC3iUkTRBkYsIPE5+mh28Q5TfbNqioWYykLB2GPGnARmB8AAt/w/h5G6sNZvfIUWRBQSgOYsko9hETHKw952of59WYtj0wg7kie8q7+xuXYvLiP6BTCMd1KvBtVKAj7UJKJt0u6gmU2n7o2e5NpXU93bbpqm/hKH4NWyOds+F/JXtJFbfVyah6Kka3ZB2zhflDx7P8SogY1osmCRGdJmC2V3wvxWqSFxaiYBJ+lo3FaHTGAydnpnH6EtAav1dndBlwXq8gY3hGtuUcpT/cFglwhKVpV/ajetXT7PQZCzQcHfdKI8eUarqwc5DN0jDzJt90yfBax/XapzIye7xGTiOeTIl+YipDcHizQufrdYU2BIPi8WWpZk7VjZhDxNRICJfA8j2DmX5YSWQimoG9V1CEMUc7cwSQ5gXd7SaHZTRSCYe474aHI=
