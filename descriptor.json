@@ -59,6 +59,13 @@
             "matrixParams": {
                 "override": 1
             }
+        },
+        {
+            "includePattern": "org.genivi.commonapi.dbus.cli.product/target/products/commonapi_dbus_generator.zip",
+            "uploadPattern": "commonapi_dbus_generator.zip",
+            "matrixParams": {
+                "override": 1
+            }
         }
         ],
     "publish": true
