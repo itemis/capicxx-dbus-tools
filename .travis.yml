@@ -13,7 +13,7 @@ env:
 before_install:
 - sh -e /etc/init.d/xvfb start - sleep 10
 script:
-- mvn -Dtarget.id=org.genivi.commonapi.dbus.target -f org.genivi.commonapi.dbus.releng/pom.xml clean verify
+- mvn -Dtarget.id=org.genivi.commonapi.dbus.target -DCORE_REPOSITORY_URL=https://dl.bintray.com/itemis/generic/capicxx-core-tools/3.1.13.SNAPSHOT -f org.genivi.commonapi.dbus.releng/pom.xml clean verify
 deploy:
   on: develop
   provider: bintray
