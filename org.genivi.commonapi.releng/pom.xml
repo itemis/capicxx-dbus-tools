@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>commonapi</groupId>
     <artifactId>org.genivi.commonapi.releng</artifactId>
-    <version>3.1.12-SNAPSHOT</version>
+    <version>3.1.13-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
-        <tycho-version>0.22.0</tycho-version>
+        <tycho-version>1.0.0</tycho-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <forceContextQualifier>v${maven.build.timestamp}</forceContextQualifier>
         <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
@@ -46,7 +46,7 @@
                         <artifact>
                             <groupId>commonapi</groupId>
                             <artifactId>${target.id}</artifactId>
-                            <version>3.1.12-SNAPSHOT</version>
+                            <version>3.1.13-SNAPSHOT</version>
                         </artifact>
                     </target>
                     <filters>

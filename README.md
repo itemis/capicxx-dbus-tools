@@ -18,12 +18,18 @@ https://genivi.github.io/capicxx-core-tools/
 
 ##### Build Instructions for Linux
 
-You can build all code generators by calling maven from the command-line. Open a console and change in the directory org.genivi.commonapi.dbus.releng of your CommonAPI-D-Bus-Tools directory. Then call:
+You can build all code generators by calling maven from the command-line. Open a console and change in the directory `org.genivi.commonapi.dbus.releng` of your CommonAPI-D-Bus-Tools directory. Then call:
 
 ```bash
 mvn -DCOREPATH=<path to your CommonAPI-Tools dir> -Dtarget.id=org.genivi.commonapi.dbus.target clean verify
 ```
 _COREPATH_ is the directory, that contains the target definition folder: `org.genivi.commonapi.dbus.target`.
+
+Alternatively, when the CommonAPI Core Tools should not be consumed from the local file system, but from an update site, then call
+```bash
+mvn -DCORE_REPOSITORY_URL=<URL of CommonAPI-Tools update site> -Dtarget.id=org.genivi.commonapi.dbus.target clean verify
+```
+_CORE_REPOSITORY_URL_ is a URL of the p2 repository containing the core tools. For a local build use `file:/<PATH_TO_CORE_TOOLS_DIR>/org.genivi.commonapi.core.updatesite/target/repository`
 
 
 After the successful build you will find the commond-line generators archived in `org.genivi.commonapi.dbus.cli.product/target/products/commonapi_dbus_generator.zip` and the update-sites in `org.genivi.commonapi.dbus.updatesite/target`.

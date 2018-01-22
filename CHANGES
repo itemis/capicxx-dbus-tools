@@ -1,6 +1,16 @@
 Changes
 =======
 
+v3.1.13
+- Target platform upgraded
+  - Base target platform is Eclipse Oxygen.2
+  - Xtend 2.13.0
+  - Xtext 2.13.0
+  - Franca 0.11
+- Build
+  - Upgrade Maven Tycho to 1.0.0
+  - Added Travis build configuration
+
 v3.1.12
 - Add support for Unix FD type in DBus
 - Fix compiler warnings in generated code

@@ -23,21 +23,17 @@
         <version>3.1.13-SNAPSHOT</version>
         <relativePath>../org.genivi.commonapi.releng</relativePath>
     </parent>
-    <repositories>
-        <repository>
-        <id>core.cli</id>
-        <layout>p2</layout>
-        <url>file:${COREPATH}/org.genivi.commonapi.core.cli.product/target/repository/</url>
-        </repository>
-        <repository>
-        <id>core.updatesite</id>
-        <layout>p2</layout>
-        <url>file:${COREPATH}/org.genivi.commonapi.core.updatesite/target/repository/</url>
-        </repository>
-    </repositories>
     <properties>
       <buildDir>target</buildDir>
+      <CORE_REPOSITORY_URL>file:${COREPATH}/org.genivi.commonapi.core.updatesite/target/repository/</CORE_REPOSITORY_URL>
     </properties>
+    <repositories>
+        <repository>
+	        <id>core.updatesite</id>
+	        <layout>p2</layout>
+	        <url>${CORE_REPOSITORY_URL}</url>
+        </repository>
+    </repositories>
     <build>
       <directory>${buildDir}</directory>
     </build>
